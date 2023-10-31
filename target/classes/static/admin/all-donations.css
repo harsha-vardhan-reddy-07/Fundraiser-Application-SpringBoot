@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500&family=Marck+Script&family=Montserrat:wght@400;600;800&family=Titillium+Web&display=swap');
+
+
+.navbar{
+    height: 10vh;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: #fff;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2vw;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar h3 a{
+
+    margin: 0;
+    font-family: 'Kaushan Script', cursive;
+    color: rgb(232, 186, 158);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-options{
+
+    display: flex;
+    gap: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-options a{
+    margin: 0;
+    color: rgb(165, 167, 170);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-options a:hover{
+
+    color: rgb(69, 70, 71);
+}
+
+.nav-options p{
+    margin: 0;
+    color: rgb(165, 167, 170);
+    cursor: pointer;
+}
+
+.nav-options p:hover{
+
+    color: rgb(69, 70, 71);
+}
+
+
+.all-donations-page{
+
+    height: fit-content;
+    width: 100%;
+    padding: 13vh 3vw 0vh 3vw;
+    font-family: 'Poppins', sans-serif;
+}
+
+.all-donations-page h3{
+    font-size: 1.6rem;
+    margin: 20px 0 15px;
+}
+
+.all-donations{
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.all-donations::-webkit-scrollbar {
+    display: none;
+}
+
+.all-donation-card{
+
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    justify-content: space-between;
+    background-color: rgba(231, 239, 236, 0.416);
+    border-radius: 0.8rem;
+    padding: 2vh 2vw;
+}
+
+.all-donation-card span{
+
+
+}
+
+.all-donation-card span b{
+
+    font-weight: 600;
+    color: rgb(32, 97, 124);
+    font-size: 0.8rem;
+}
+
+.all-donation-card span p{
+
+    margin: 0;
+    color: rgb(36, 132, 173);
+    font-size: 0.9rem;
+}
+
+.all-donation-card button{
+
+    padding: 0 20px;
+    height: 7vh;
+    font-size: 0.7rem;
+}

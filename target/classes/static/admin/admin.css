@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500&family=Marck+Script&family=Montserrat:wght@400;600;800&family=Titillium+Web&display=swap');
+
+
+.navbar{
+    height: 10vh;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: #fff;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2vw;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar h3 a{
+
+    margin: 0;
+    font-family: 'Kaushan Script', cursive;
+    color: rgb(232, 186, 158);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-options{
+
+    display: flex;
+    gap: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-options a{
+    margin: 0;
+    color: rgb(165, 167, 170);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-options a:hover{
+
+    color: rgb(69, 70, 71);
+}
+
+.nav-options p{
+    margin: 0;
+    color: rgb(165, 167, 170);
+    cursor: pointer;
+}
+
+.nav-options p:hover{
+
+    color: rgb(69, 70, 71);
+}
+
+.admin-page{
+    height: fit-content;
+    width: 100%;
+    padding-top: 15vh;
+}
+
+.admin-cards{
+
+    width: 100%;
+    padding: 0 5%;
+    display: flex;
+    gap: 5vw;
+}
+
+.admin-card{
+
+    text-align: center;
+    width: 20vw;
+    height: 25vh;
+    padding: 3vh 0;
+    border-radius: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.admin-card h5{
+
+
+}
+
+.admin-card p{
+
+
+}
+
+.admin-card button{
+
+    width: 50%;
+}

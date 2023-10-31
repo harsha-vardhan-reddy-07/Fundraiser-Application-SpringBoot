@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500&family=Marck+Script&family=Montserrat:wght@400;600;800&family=Titillium+Web&display=swap');
+
+
+.navbar{
+    height: 10vh;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: #fff;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2vw;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar h3 a{
+
+    margin: 0;
+    font-family: 'Kaushan Script', cursive;
+    color: rgb(232, 186, 158);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-options{
+
+    display: flex;
+    gap: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-options a{
+    margin: 0;
+    color: rgb(165, 167, 170);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-options a:hover{
+
+    color: rgb(69, 70, 71);
+}
+
+.nav-options p{
+    margin: 0;
+    color: rgb(165, 167, 170);
+    cursor: pointer;
+}
+
+.nav-options p:hover{
+
+    color: rgb(69, 70, 71);
+}
+
+.my-fundrisers-page{
+
+    height: fit-content;
+    padding: 15vh 0;
+}
+
+.all-fundrisers{
+    width: 90%;
+    margin: 0 5%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: space-between;
+    row-gap: 5vh;
+}
+
+.fundriser-card{
+
+    border: 1px solid #a4a2a222;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    padding: 3% 3%;
+}
+
+.fundriser-card:hover{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 0.7rem;
+}
+
+.fundriser-card img{
+    width: 100%;
+    height: 30vh;
+    border-radius: 0.3rem;
+}
+
+.fundriser-card-data{
+    margin-top: 10px;
+
+}
+
+.fundriser-card-data h5{
+
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #9a9797;
+}
+
+
+
+.fundriser-card-data span{
+
+    display: flex;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+
+
+.fund-data-50-50{
+
+    justify-content: space-between;
+    padding-right: 5%;
+}
+
+.fundriser-card-data span b{
+    font-weight: 500;
+    color: #6b6666;
+}
+
+.fundriser-card-data span p{
+    margin: 0;
+    color: #8c8686;
+    display: flex;
+}
+
+.fundriser-card-data span button{
+    width: 100%;
+    margin: 15px 0 5px 0;
+    padding: 7px 0;
+    border-radius: 0.3rem;
+}
+
+
+.OrangeBtn{
+    background-color: #c9ced200;
+    border: 1.5px solid #ef7f5d;
+    color: #ef7f5d;
+}
+.OrangeBtn:hover{
+
+    background-color: #ef7f5d;
+    border: 1.5px solid #da4a4a43;
+    color: #ffffffee;
+}
+
+.fundriser-card-data span button a{
+    text-decoration: none;
+}
+
+.OrangeBtn a{
+    color: #ef7f5d;
+}
+.OrangeBtn a:hover{
+    color: #ffffffee;
+}
+
+
+.BlueBtn{
+    background-color: #258abd00;
+    border: 1.5px solid #1756767e;
+    color: #258abddc;
+}
+.BlueBtn:hover{
+
+    background-color: #258abddc;
+    border: 1.5px solid #da4a4a43;
+    color: #ffffffee;
+}
+
+.BlueBtn a{
+    color: #258abddc;
+    width: 100%;
+}
+.BlueBtn a:hover{
+    color: #ffffffee;
+}

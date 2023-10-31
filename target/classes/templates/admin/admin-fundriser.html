@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/fundriser.css">
+
+    <title>Fundraiser!!</title>
+</head>
+<body>
+
+
+<div class="navbar">
+    <h3 > <a href="/admin" >SB Funds (admin)</a></h3>
+    <div class="nav-options">
+        <a href="/admin"  >Home</a>
+        <a href="/all-fundrisers"  >Fundraisers</a>
+        <a href="/all-donations" >Donations</a>
+        <a href="/all-users" >Users</a>
+        <p id="logoutBtn" >logout</p>
+    </div>
+</div>
+
+<script>
+
+    const myLink = document.getElementById('logoutBtn');
+
+    myLink.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        localStorage.clear();
+        for (let key in localStorage) {
+            if (localStorage.hasOwnProperty(key)) {
+                localStorage.removeItem(key);
+            }
+        }
+        window.location.href = '/landing';
+
+    });
+</script>
+
+
+
+
+<div class="fundriser-page">
+
+
+
+    <div class="fundriser-data-container" >
+
+        <img class='fundriser-banner-image' th:src="${fundriser.bannerImage}" alt="" />
+
+        <div class="fundriser-title-desc">
+            <h4 th:text="${fundriser.title}" ></h4>
+            <p th:text="${fundriser.description}"></p>
+        </div>
+
+        <div class="fundriser-applicant-data">
+            <span>
+                <b>Fundriser Need: </b>
+                <p th:text="${fundriser.fundriserPurpose}"></p>
+            </span>
+            <span>
+                <b>Applicant Name: </b>
+                <p th:text="${fundriser.applicantName}"></p>
+            </span>
+            <span>
+                <b>Applicant Email: </b>
+                <p th:text="${fundriser.applicantEmail}"></p>
+            </span>
+            <span>
+                <b>Applicant Mobile: </b>
+                <p th:text="${fundriser.applicantMobile}"></p>
+            </span>
+            <span>
+                <b>Deadline: </b>
+                <p th:text="${fundriser.deadline}"></p>
+            </span>
+            <div class="fundriser-amount-status">
+                <b>Amount Collected: </b>
+                <span>
+                    <p>&#8377; <span th:text="${fundriser.collectedAmount}"></span> </p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar"  th:style="'width: ' + ${fundriser.collectedAmount * 100 / fundriser.targetAmount} + '%'" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <p>&#8377; <span th:text="${fundriser.targetAmount}" ></span></p>
+                </span>
+            </div>
+            <button class='share-btn OrangeBtn' onclick="shareUrl()" >Share now </button>
+        </div>
+
+        <div class="fundriser-images">
+            <img th:src="${fundriser.extraImg1}" alt="" />
+            <img th:src="${fundriser.extraImg2}"  alt="" />
+            <img th:src="${fundriser.extraImg3}"  alt="" />
+        </div>
+
+        <hr />
+    </div>
+
+
+
+    <div class="fundriser-recent-transactions">
+        <h3>Donations</h3>
+        <form class="input-group mb-3 fundriser-donate-form" id="donationForm" action="/make-donation" method="post" >
+            <input type="hidden" name="donarName" id="donarNameInput" >
+            <input type="hidden" name="donarEmail" id="donarEmailInput">
+            <input type="hidden" name="fundriserId" th:value="${fundriser._id}" >
+            <input type="hidden" name="fundriserPurpose" th:value="${fundriser.fundriserPurpose}" >
+            <input type="number" class="form-control" placeholder="Enter amount" aria-label="Enter amount" aria-describedby="button-addon2"  name="donationAmount" />
+            <input type="text" class="form-control" placeholder="Remarks" aria-label="Remarks" aria-describedby="button-addon2" name="remark" />
+            <button class="btn btn-outline-primary" type="submit" id="button-addon2" >Donate</button>
+        </form>
+
+        <div class="recent-donations-container">
+            <h4>Recent Donations</h4>
+            <div class="recent-donations">
+
+                <div class="recent-donation" th:each="donation: ${donations}">
+                            <span>
+                                <b>Donor name</b>
+                                <p th:text="${donation.donarName}"></p>
+                            </span>
+                    <span>
+                                <b>Donor mail</b>
+                                <p th:text="${donation.donarEmail}"></p>
+                            </span>
+                    <span>
+                                <b>Amount</b>
+                                <p >&#8377; <span th:text="${donation.donationAmount}"></span></p>
+                            </span>
+                    <span>
+                                <b>Remarks</b>
+                                <p th:text="${donation.remark}"></p>
+                            </span>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    function shareUrl(){
+        navigator.share({
+            title: 'Share this fundriser',
+            text: 'Contribute to the nobel cause',
+            url: window.location.href,
+        });
+    }
+
+</script>
+
+
+
+<script>
+    document.getElementById('donationForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+
+        const formData = new FormData(this);
+
+
+        fetch('/make-donation', {
+            method: 'POST',
+            body: formData,
+        })
+            .then(response => {
+                if (response.ok) {
+
+
+                    var data = response.json();
+
+                    return data;
+                } else {
+                    console.error('process failed');
+                }
+            })
+            .then(donation => {
+                alert("donation successfull!!");
+
+
+                window.location.reload();
+
+
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
+</script>
+
+
+<script>
+
+    function fetchData() {
+
+        var localStorageData = localStorage.getItem('userData');
+        var userData = JSON.parse(localStorageData);
+
+
+        const navUserId = document.getElementById('navMyApplication');
+
+
+        navUserId.href= `/my-fundrisers/${userData._id}`;
+
+
+        const donarNameInput = document.getElementById("donarNameInput");
+        const donarEmailInput = document.getElementById("donarEmailInput");
+
+        donarNameInput.value = userData.username;
+        donarEmailInput.value = userData.email;
+
+
+
+
+    }
+    fetchData();
+
+</script>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/admin/all-fundrisers.css">
+    <title>Fundraiser!!</title>
+</head>
+<body>
+
+<div class="navbar">
+    <h3 > <a href="/admin" >SB Funds (admin)</a></h3>
+    <div class="nav-options">
+        <a href="/admin"  >Home</a>
+        <a href="/all-fundrisers"  >Fundraisers</a>
+        <a href="/all-donations" >Donations</a>
+        <a href="/all-users" >Users</a>
+        <p id="logoutBtn" >logout</p>
+    </div>
+</div>
+
+<script>
+
+    const myLink = document.getElementById('logoutBtn');
+
+    myLink.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        localStorage.clear();
+        for (let key in localStorage) {
+            if (localStorage.hasOwnProperty(key)) {
+                localStorage.removeItem(key);
+            }
+        }
+        window.location.href = '/landing';
+
+    });
+</script>
+
+
+
+<div class="homepage">
+
+    <div class="all-fundrisers">
+
+        <div class="fundriser-card" th:each="fundriser: ${fundrisers}">
+            <img th:src="${fundriser.bannerImage}" alt="" />
+            <div class="fundriser-card-data">
+
+                <h5 th:text="${fundriser.title}" ></h5>
+                <span>
+                    <b>Applicant: </b>
+                    <p th:text="${fundriser.applicantName}" ></p>
+                  </span>
+                <span>
+                    <b>Fundraiser cause: </b>
+                    <p th:text="${fundriser.fundriserPurpose}" ></p>
+                  </span>
+                <span>
+                    <b>Fund collected: </b>
+                    <p>&#8377; <span th:text="${fundriser.collectedAmount}"></span> / &#8377; <span th:text="${fundriser.targetAmount}"></span> </p>
+                  </span>
+                <a th:href="'/admin-fundriser/' + ${fundriser._id}" ><button class='btn btn-outline-primary' >View fundraiser</button></a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

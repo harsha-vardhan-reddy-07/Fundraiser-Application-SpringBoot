@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500&family=Marck+Script&family=Montserrat:wght@400;600;800&family=Titillium+Web&display=swap');
+
+
+
+.navbar{
+    height: 10vh;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: #fff;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2vw;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar h3 a{
+
+    margin: 0;
+    font-family: 'Kaushan Script', cursive;
+    color: rgb(232, 186, 158);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-options{
+
+    display: flex;
+    gap: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-options a{
+    margin: 0;
+    color: rgb(165, 167, 170);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-options a:hover{
+
+    color: rgb(69, 70, 71);
+}
+
+.nav-options p{
+    margin: 0;
+    color: rgb(165, 167, 170);
+    cursor: pointer;
+}
+
+.nav-options p:hover{
+
+    color: rgb(69, 70, 71);
+}
+
+
+.all-users-page{
+    width: 100%;
+    height: 100vh;
+    padding-top: 13vh;
+    padding-left: 3vw
+}
+.all-users-page h2{
+    margin-bottom: 4vh;
+    color: rgba(77, 109, 134, 0.934);
+}
+
+
+.all-users{
+    width: 90%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.all-users::-webkit-scrollbar {
+    display: none;
+}
+
+.all-users .user{
+    width: 85%;
+    background-color: rgba(231, 239, 236, 0.416);
+    border-radius: 0.8rem;
+    display: flex;
+    padding: 2vh 2vw;
+    justify-content: space-between;
+}
+.all-users .user p{
+
+    margin: 0;
+    color: rgb(36, 132, 173);
+}
+.all-users .user p b{
+    font-weight: 600;
+    color: rgb(32, 97, 124);
+}
